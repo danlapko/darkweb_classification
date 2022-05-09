@@ -20,8 +20,9 @@ df = pd.read_csv("exploit_hacking_set Data Scientist.csv",
                  converters={"type": str, "label": str, "sub_label": str, "text": str, "title": str, "site": str})
 
 df["spont_score"] = df["spont_score"].fillna(value=0.239)
+df.drop(columns=['label'])
+df['label'] = df['sub_label'] == 'Exploit'
 df.drop(columns=['sub_label'])
-df['label'] = df['label'] == 'Hacking'
 df['label'] = df['label'].astype(int)
 df['text_len'] = df['text'].apply(len)
 df['title_len'] = df['title'].apply(len)
