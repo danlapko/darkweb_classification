@@ -110,10 +110,11 @@ Different approaches for fusion text and categorical features were tried:
 
 Also the model were evaluated with different hyperparams (lr, num_epochs, etc).
 
-Best configuration:  
+Best configuration (lr = 5e-5, batch_size = 20, num_epochs = 2, 'mlp_on_categorical_then_concat'):  
 Hacking (cross-Val K=5 avg): avg: pr=0.81 rec=0.796 f1=0.803 
 
 Points to grow:
 Another Model (bert-uncased, longformer)  
 Unsupervised pretraining on our domain  
-Refactor the code entirely
+Refactor the code entirely  
+Incorporate the experiments tracking system (e.g. ClearML)
