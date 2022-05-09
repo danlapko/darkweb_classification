@@ -99,3 +99,21 @@ Exploit (cross-Val K=5 avg): pr=0.8843 rec=0.7864 f1=0.8317
 There is a lot of work to do even in an extensive baseline.  
 
 BERT-like model with tabular features looks promising.
+
+## UPDATE [08.09.2022]
+[tabular_bert.py](tabular_bert.py)  
+Some experiments with [Multimodal Transformers](https://github.com/georgian-io/Multimodal-Toolkit) conducted.  
+DistilBert is used due to the limitations of computing resources (GTX 1080 TI, 11Gb) and the need to increase the batch size.  
+
+Different approaches for fusion text and categorical features were tried:  
+'text_only', 'concat', 'mlp_on_categorical_then_concat', 'gating_on_cat_and_num_feats_then_sum', 'weighted_feature_sum_on_transformer_cat_and_numerical_feats'
+
+Also the model were evaluated with different hyperparams (lr, num_epochs, etc).
+
+Best configuration:  
+Hacking (cross-Val K=5 avg): avg: pr=0.81 rec=0.796 f1=0.803 
+
+Points to grow:
+Another Model (bert-uncased, longformer)  
+Unsupervised pretraining on our domain  
+Refactor the code entirely
